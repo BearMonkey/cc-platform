@@ -1,19 +1,8 @@
-server:
-  port: 8080
-
-
 spring:
   application:
     name: cc-platform
-  cloud:
-    nacos:
-      config:
-        server-addr: 192.168.1.106:8848
-        file-extension: yal
-        group: DEFAULT_GROUP
-        namespace: 9d2f2e60-cce8-464b-bbcc-4b399adc91b7
-  config:
-    import: "optional:nacos:${spring.application.name}.${spring.cloud.nacos.config.file-extension}"
+  profiles:
+    active: dev
 #
 ##      config:
 ##        server-addr: 192.168.1.100:8848
