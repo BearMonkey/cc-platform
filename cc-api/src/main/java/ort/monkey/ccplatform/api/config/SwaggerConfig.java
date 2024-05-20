@@ -1,4 +1,4 @@
-package org.monkey.ccplatform.demo.config;
+package ort.monkey.ccplatform.api.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
