@@ -23,6 +23,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring-cloud.version>2021.0.0</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.0.5.0</spring-cloud-alibaba.version>
         <spring-boot.version>2.7.18</spring-boot.version>
         <fastjson.version>1.2.76</fastjson.version>
@@ -32,6 +33,14 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- spring cloud  -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <!-- spring cloud alibaba -->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
