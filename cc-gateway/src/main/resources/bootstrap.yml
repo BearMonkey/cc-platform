@@ -10,16 +10,23 @@ spring:
     nacos:
       discovery:
         server-addr: ${nacos.host:127.0.0.1}:${nacos.port:8849}
-        namespace: 9c67e952-4ba6-4ba3-9ecb-5f3b568fa56b
+        namespace: ${nacos.namespace:9c67e952-4ba6-4ba3-9ecb-5f3b568fa56b}
       config:
         server-addr: ${spring.cloud.nacos.discovery.server-addr}
         namespace: ${spring.cloud.nacos.discovery.namespace}
         group: DEFAULT_GROUP
         file-extension: yml
-
+        shared-configs: ${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: cc-demo
+          uri: lb://cc-demo
+          #uri: http://localhost:8081
+          predicates:
+            - Path=/demo/**
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
-  config:
-    import:
-      - optional:nacos:${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}

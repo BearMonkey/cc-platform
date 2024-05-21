@@ -5,8 +5,7 @@ spring:
   application:
     name: cc-demo
   profiles:
-    active: dev
-  #    active: @profiles.active@
+    active: @profiles.active@
   cloud:
     nacos:
       discovery:
