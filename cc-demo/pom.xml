@@ -36,6 +36,12 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
 
+        <!--2020.0.0 版本不在默认加载bootstrap 文件,需引入一下依赖-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        </dependency>
+
         <!-- Swagger2依赖 -->
         <dependency>
             <groupId>io.springfox</groupId>

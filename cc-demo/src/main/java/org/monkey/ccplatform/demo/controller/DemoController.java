@@ -3,6 +3,7 @@ package org.monkey.ccplatform.demo.controller;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,11 +16,14 @@ import ort.monkey.ccplatform.api.dto.CcOrderDto;
 @Api(value = "demo接口", tags = "/demo")
 public class DemoController {
 
+    @Value("${org.monkey.name:Ashe}")
+    private String name;
+
     @ApiOperation(value = "/say", httpMethod = "GET")
     @ApiParam("无")
     @GetMapping("/say")
     public String hello() {
-        return "Hello World!";
+        return "Hello World, " + name;
     }
 
     @ApiOperation(value = "/add", httpMethod = "POST")
