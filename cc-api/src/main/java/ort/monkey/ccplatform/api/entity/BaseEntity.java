@@ -8,6 +8,7 @@ import lombok.Data;
 import java.util.Date;
 
 @ApiModel("Api Base Model")
+@Data
 public class BaseEntity {
     @ApiModelProperty("创建时间")
     private Date createTime;

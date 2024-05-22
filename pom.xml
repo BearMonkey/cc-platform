@@ -13,6 +13,7 @@
         <module>test-module</module>
         <module>cc-demo</module>
         <module>cc-api</module>
+        <module>cc-warehouse</module>
     </modules>
 
     <properties>
@@ -34,6 +35,10 @@
 
         <!-- swagger -->
         <springfox.version>3.0.0</springfox.version>
+
+        <mysql-connector.version>8.0.28</mysql-connector.version>
+
+        <mybatis-plus.version>3.0.3</mybatis-plus.version>
     </properties>
 
     <dependencyManagement>
@@ -78,6 +83,20 @@
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-boot-starter</artifactId>
                 <version>${springfox.version}</version>
+            </dependency>
+
+            <!-- Mysql Connector -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector.version}</version>
+            </dependency>
+
+            <!-- mybatis-plus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
