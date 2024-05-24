@@ -32,6 +32,10 @@ import javax.crypto.SecretKey;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
+/**
+ * 微信支付组件，包含下单，查询订单，关闭，退款，退款查询
+ * @author cc 
+ */
 @Component
 @Data
 @Slf4j
