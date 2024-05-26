@@ -41,37 +41,11 @@ import java.security.SecureRandom;
 @Slf4j
 public class WxPayer {
 
-    /**
-     * 微信支付配置对象，一个商户号只能初始化一个配置，否则会因为重复的下载任务报错
-     */
-    @Autowired
-    private Config wxPayConfig;
-
     @Autowired
     private JsapiServiceExtension jsapiServiceExtension;
 
     @Autowired
     private RefundService refundService;
-
-    @Bean(name="wxPayConfig")
-    public Config config(Merchant merchant) {
-        return new RSAAutoCertificateConfig.Builder()
-                .merchantId(merchant.getMchId())
-                .privateKeyFromPath(merchant.getPrivateKeyPath())
-                .merchantSerialNumber(merchant.getSerialNo())
-                .apiV3Key(merchant.getApiV3Key())
-                .build();
-    }
-
-    @Bean(name = "jsapiService")
-    public JsapiServiceExtension getJsapiServiceExtension(Config wxPayConfig) {
-        return new JsapiServiceExtension.Builder().config(wxPayConfig).build();
-    }
-
-    @Bean(name = "refundService")
-    public RefundService getRefundService(Config wxPayConfig) {
-        return new RefundService.Builder().config(wxPayConfig).build();
-    }
 
     /**
      * 生成 apiV3秘钥

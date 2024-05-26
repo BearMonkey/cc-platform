@@ -30,5 +30,5 @@ wx:
     merchant:
       mchId: 190000****
       apiV3Key: 545f913d75fb6409cb29b142fe8bb478
-      privateKeyPath: /opt/wxpay/apiclient_key.pem
+      privateKeyPath: D:\dev\project\idea\cc-platform\cc-wxpay\src\main\resources\apiclient_key.pem
       serialNo: xxx
