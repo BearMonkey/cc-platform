@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    使用说明：
+       在根pom里面设置所有服务日志存放路径，为全局日志路径。
+       如果nacos服务里配置日志路径，就按照nacos配置路径存日志。
+
+    一：根pom目录下配置参数：
+		1.绝对路径配置，/u01/szmsd-log 可以修改：
+		 <properties>
+			<log-path>/u01/szmsd-log</log-path>
+		 </properties>
+
+      或者配置
+
+		2.相对路径，系统默认为相对路径配置：
+		 <properties>
+			<log-path>.</log-path>
+		 </properties>
+
+    二: nacos配置参数，正常情况下配置此参数即可：
+        logging:
+			 file:
+			   path: /u01/szmsd-log
+	   如果有配置，就以此为日志写入路径；否则这个logging.file.path全部注释掉，以当前程序的运行目录下的logs目录保存日志
+-->
+<configuration debug="false" scan="false">
+    <springProperty scop="context" name="spring.application.name" source="spring.application.name" defaultValue=""/>
+    <springProperty scop="context" name="logging.file.path" source="logging.file.path" defaultValue="."/>
+    <property name="log.path" value="${logging.file.path}/logs/${spring.application.name}"/>
+
+    <!-- 彩色日志格式 -->
+    <property name="CONSOLE_LOG_PATTERN"
+              value="${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger:%line{39}){cyan} %clr(:){faint} [%X{requestId}] %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
+    <!-- 彩色日志依赖的渲染类 -->
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
+    <conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>
+    <conversionRule conversionWord="wEx" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter"/>
+    <!-- Console log output -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Log file debug output -->
+    <appender name="info" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.path}/info.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${log.path}/info.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>50MB</maxFileSize>
+            <!-- 日志最大的历史 30天 -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date [%thread] %-5level [%logger{50}] [requestId:%X{requestId}] %file:%line - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+    </appender>
+
+    <!-- Log file debug output -->
+    <appender name="debug" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.path}/debug.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${log.path}/debug.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>50MB</maxFileSize>
+            <!-- 日志最大的历史 30天 -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date [%thread] %-5level [%logger{50}] [requestId:%X{requestId}] %file:%line - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+    </appender>
+
+    <!-- Log file error output -->
+    <appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.path}/error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--			<fileNamePattern>${log.path}/%d{yyyy-MM}/error.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>-->
+            <fileNamePattern>${log.path}/error.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>50MB</maxFileSize>
+            <!-- 日志最大的历史 30天 -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date [%thread] %-5level [%logger{50}] [requestId:%X{requestId}] %file:%line - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+    </appender>
+
+    <!-- Level: FATAL 0  ERROR 3  WARN 4  INFO 6  DEBUG 7 -->
+    <root level="INFO">
+        <appender-ref ref="console"/>
+        <appender-ref ref="info"/>
+        <appender-ref ref="debug"/>
+        <appender-ref ref="error"/>
+    </root>
+
+    <!-- 业务操作日志文件 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~begin~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!-- 日志使用：继承基类CommOptLog即可，写日志的地方用 optLog.info("test my log"); -->
+    <!--<appender name="optFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        &lt;!&ndash; 可以是相对路径，可以是绝对路径 &ndash;&gt;
+        <file>${log.path}/GelOptLog.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${log.path}/basOptLog.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>50MB</maxFileSize>
+            &lt;!&ndash; 日志最大的历史 30天 &ndash;&gt;
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <append>true</append>
+        <encoder>
+            <pattern>%X{requestId}|%d{yyyy-MM-dd HH:mm:ss.SSS}|%level|%class|%thread|%method|%line|%msg%n</pattern>
+        </encoder>
+    </appender>-->
+
+    <!-- 添加控制台打印 -->
+    <!--<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">-->
+        <!-- 对日志进行格式化。 -->
+        <!--<encoder>
+            <pattern>%X{requestId}|%d{yyyy-MM-dd HH:mm:ss.SSS}|%level|%class|%thread|%method|%line|%msg%n</pattern>
+        </encoder>-->
+    <!--</appender>-->
+
+    <!-- 操作日志打印 -->
+    <!--<logger name="optLog" level="INFO" additivity="false">
+        <appender-ref ref="optFile" />
+        <appender-ref ref="stdout" />
+    </logger>-->
+    <!--业务操作日志文件 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~end~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+</configuration>

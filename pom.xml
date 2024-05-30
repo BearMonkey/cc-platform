@@ -15,6 +15,8 @@
         <module>cc-api</module>
         <module>cc-warehouse</module>
         <module>cc-wxpay</module>
+        <module>cc-crypto</module>
+        <module>springboot-demo</module>
     </modules>
 
     <properties>
