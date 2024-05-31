@@ -17,6 +17,7 @@
         <module>cc-wxpay</module>
         <module>cc-crypto</module>
         <module>springboot-demo</module>
+        <module>mybatis-plus-demo</module>
     </modules>
 
     <properties>
@@ -31,7 +32,7 @@
         <spring-boot.version>2.6.6</spring-boot.version>
 
         <!-- json -->
-        <fastjson.version>1.2.76</fastjson.version>
+        <fastjson.version>2.0.0</fastjson.version>
 
         <!-- lombok -->
         <lombok.version>1.18.12</lombok.version>
@@ -41,7 +42,7 @@
 
         <mysql-connector.version>8.0.28</mysql-connector.version>
 
-        <mybatis-plus.version>3.0.3</mybatis-plus.version>
+        <mybatis-plus.version>3.5.6</mybatis-plus.version>
     </properties>
 
     <dependencyManagement>
