@@ -4,7 +4,6 @@ import org.monkey.ccplatform.warehouse.service.WarehouseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ort.monkey.ccplatform.api.common.Result;
 import ort.monkey.ccplatform.api.dto.CcWarehouseResp;
 import ort.monkey.ccplatform.api.entity.CcWarehouse;
 

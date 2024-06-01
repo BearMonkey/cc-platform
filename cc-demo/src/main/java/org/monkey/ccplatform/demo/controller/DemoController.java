@@ -5,7 +5,6 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
-import ort.monkey.ccplatform.api.common.Result;
 import ort.monkey.ccplatform.api.dto.CcOrderDto;
 
 @RestController
