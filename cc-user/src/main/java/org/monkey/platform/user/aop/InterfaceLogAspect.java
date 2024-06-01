@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
-import ort.monkey.ccplatform.api.common.Result;
+import org.monkey.platform.api.common.Result;
 
 /**
  * InterfaceLogAspect

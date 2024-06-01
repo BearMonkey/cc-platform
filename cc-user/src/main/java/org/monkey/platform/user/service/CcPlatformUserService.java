@@ -1,7 +1,7 @@
 package org.monkey.platform.user.service;
 
-import ort.monkey.ccplatform.api.dto.user.CcPlatformUserDto;
-import ort.monkey.ccplatform.api.exception.CommException;
+import org.monkey.platform.api.dto.user.CcPlatformUserDto;
+import org.monkey.platform.api.exception.CommException;
 
 /**
  * CcPlatformUserService

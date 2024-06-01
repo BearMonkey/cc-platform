@@ -7,14 +7,13 @@ import org.apache.commons.lang3.StringUtils;
 import org.monkey.platform.user.mapper.CcPlatformUserMapper;
 import org.monkey.platform.user.pojo.CcPlatformUser;
 import org.monkey.platform.user.service.CcPlatformUserService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
-import ort.monkey.ccplatform.api.dto.user.CcPlatformUserDto;
-import ort.monkey.ccplatform.api.enums.user.DelFlagEnum;
-import ort.monkey.ccplatform.api.enums.user.GenderEnum;
-import ort.monkey.ccplatform.api.exception.CommException;
+import org.monkey.platform.api.dto.user.CcPlatformUserDto;
+import org.monkey.platform.api.enums.user.DelFlagEnum;
+import org.monkey.platform.api.enums.user.GenderEnum;
+import org.monkey.platform.api.exception.CommException;
 
 import java.util.Date;
 

@@ -14,9 +14,10 @@
         <module>cc-demo</module>
         <module>cc-api</module>
         <module>cc-warehouse</module>
-        <module>cc-wxpay</module>
+        <!--<module>cc-wxpay</module>-->
         <module>cc-crypto</module>
         <module>cc-user</module>
+        <module>cc-auth</module>
         <module>springboot-demo</module>
         <module>mybatis-plus-demo</module>
     </modules>

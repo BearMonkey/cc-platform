@@ -27,6 +27,12 @@ spring:
           #uri: http://localhost:8081
           predicates:
             - Path=/demo/**
+
+        - id: cc-user
+          uri: lb://cc-user
+          #uri: http://localhost:8081
+          predicates:
+            - Path=/demo/**
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher

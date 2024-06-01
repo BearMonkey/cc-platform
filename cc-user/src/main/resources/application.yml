@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8091
 
 spring:
   application:
@@ -16,3 +16,5 @@ spring:
 logging:
   file:
     path: .
+
+hmacsha256key: asdfasdfasdfasdf1234123412341234

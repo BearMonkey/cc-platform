@@ -1,8 +1,8 @@
 package org.monkey.platform.user.service;
 
-import ort.monkey.ccplatform.api.dto.BaseDto;
-import ort.monkey.ccplatform.api.dto.user.AccountDto;
-import ort.monkey.ccplatform.api.exception.CommException;
+import org.monkey.platform.user.pojo.Account;
+import org.monkey.platform.api.dto.user.AccountDto;
+import org.monkey.platform.api.exception.CommException;
 
 /**
  * AccountService
@@ -17,4 +17,13 @@ public interface AccountService {
      * @throws CommException 业务操作异常
      */
     void addAccount(AccountDto accountDto) throws CommException;
+
+    /**
+     * 根据用户名密码查询账号
+     * @param username 账号
+     * @param password 密码
+     * @return {@link Account}
+     * @throws CommException 业务异常
+     */
+    Account selectAccount(String username, String password) throws CommException;
 }

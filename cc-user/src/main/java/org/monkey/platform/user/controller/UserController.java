@@ -4,10 +4,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.monkey.platform.user.service.CcPlatformUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import ort.monkey.ccplatform.api.common.Constants;
-import ort.monkey.ccplatform.api.common.Result;
-import ort.monkey.ccplatform.api.dto.user.CcPlatformUserDto;
-import ort.monkey.ccplatform.api.exception.CommException;
+import org.monkey.platform.api.common.Constants;
+import org.monkey.platform.api.common.Result;
+import org.monkey.platform.api.dto.user.CcPlatformUserDto;
+import org.monkey.platform.api.exception.CommException;
 
 /**
  * UserController
