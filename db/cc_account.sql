@@ -1,0 +1,1 @@
+INSERT INTO `cc_account` (`id`, `account`, `password`, `nick_name`, `tel`, `email`, `create_time`, `create_user`, `update_time`, `update_user`, `del_flag`) VALUES (16, 'monkey', '1b1f72a21bafc357a8b3f16017f4b751386f0682bd6149cc6d0e9b29af7a793f', NULL, '12345678901', NULL, '2024-06-01 17:29:41', 'System', NULL, NULL, '0');

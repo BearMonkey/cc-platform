@@ -1,0 +1,4 @@
+INSERT INTO `cc_platform_user` (`id`, `name`, `birth`, `gender`, `create_time`, `create_user`, `update_time`, `update_user`, `del_flag`) VALUES (12, 'monkey', '2024-05-30', '1', '2024-05-31 11:49:15', 'System', '2024-05-31 14:05:51', 'System', '0');
+INSERT INTO `cc_platform_user` (`id`, `name`, `birth`, `gender`, `create_time`, `create_user`, `update_time`, `update_user`, `del_flag`) VALUES (13, 'monkey', '2024-05-31', '1', '2024-05-31 11:51:18', 'System', NULL, NULL, '0');
+INSERT INTO `cc_platform_user` (`id`, `name`, `birth`, `gender`, `create_time`, `create_user`, `update_time`, `update_user`, `del_flag`) VALUES (14, 'monkey', '2024-05-31', '1', '2024-05-31 11:56:57', 'System', NULL, NULL, '0');
+INSERT INTO `cc_platform_user` (`id`, `name`, `birth`, `gender`, `create_time`, `create_user`, `update_time`, `update_user`, `del_flag`) VALUES (15, 'monkey', '2024-05-31', '1', '2024-05-31 11:59:28', 'System', NULL, NULL, '0');
