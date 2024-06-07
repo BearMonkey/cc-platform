@@ -16,6 +16,7 @@
         <module>cc-warehouse</module>
         <!--<module>cc-wxpay</module>-->
         <module>cc-crypto</module>
+        <module>cc-user-api</module>
         <module>cc-user</module>
         <module>cc-auth</module>
         <module>springboot-demo</module>
@@ -117,6 +118,13 @@
                 <artifactId>commons-lang3</artifactId>
                 <version>3.12.0</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>4.5.3</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
