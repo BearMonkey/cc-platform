@@ -1,5 +1,6 @@
 package org.monkey.platform.auth.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.monkey.platform.auth.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,9 +34,14 @@ public class AccountController {
         }
     }
 
-    @GetMapping("/user")
-    public Result<AccountDto> selectByAccountAndPwd(AccountDto accountDto) {
+    @GetMapping("/user/{accountInfo}")
+    public Result<AccountDto> selectByAccountAndPwd(@PathVariable("accountInfo") String accountInfo) {
+        if (accountInfo == null || accountInfo.isEmpty()) {
+            return Result.fail("账户信息不能为空");
+        }
+
         try {
+            AccountDto accountDto = JSONObject.parseObject(accountInfo, AccountDto.class);
             AccountDto accountRst = accountService.selectAccount(accountDto.getAccount(), accountDto.getPassword());
             return Result.success(accountRst);
         } catch (Exception e) {
