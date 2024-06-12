@@ -22,6 +22,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import javax.annotation.Resource;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,6 +45,7 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public LoginResp login(LoginDto loginDto) throws LoginException, CommException {
+        log.info("调用[cc-user]服务查询账户, loginDto={}", loginDto);
         // 参数校验
         loginParamCheck(loginDto);
 
@@ -59,8 +62,9 @@ public class LoginServiceImpl implements LoginService {
         AccountDto accountDto = new AccountDto();
         accountDto.setAccount(loginDto.getUsername());
         accountDto.setPassword(loginDto.getPassword());
-        log.info("调用[cc-user]服务查询账户, account={}", accountDto.getAccount());
-        Result<AccountDto> result = accountFeignClient.selectByAccountAndPwd(accountDto);
+        log.info("调用[cc-user]服务查询账户, account={}", accountDto);
+        String accountStr = Base64.getEncoder().encodeToString(accountDto.toString().getBytes(StandardCharsets.UTF_8));
+        Result<AccountDto> result = accountFeignClient.selectByAccountAndPwd(accountStr);
         if (null == result) {
             throw new CommException("调用[cc-user]异常，返回值为空");
         }

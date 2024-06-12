@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-room>
+    <id>101</id>
+    <teacher>
+        <name>111</name>
+        <type>数学</type>
+    </teacher>
+    <students>
+        <student>
+            <name>111</name>
+            <age>12</age>
+        </student>
+        <student>
+            <name>222</name>
+            <age>13</age>
+        </student>
+        <student>
+            <name>333</name>
+            <age>15</age>
+        </student>
+    </students>
+</class-room>

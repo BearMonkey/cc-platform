@@ -4,6 +4,7 @@ import org.monkey.platform.api.common.Result;
 import org.monkey.platform.auth.api.dto.AccountDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 /**
  * AccountFeignClient
@@ -14,6 +15,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignClient(value = "cc-user")
 public interface AccountFeignClient {
 
-    @GetMapping("/account/user")
-    Result<AccountDto> selectByAccountAndPwd(AccountDto accountDto);
+    @GetMapping("/account/user/{accountInfo}")
+    Result<AccountDto> selectByAccountAndPwd(@PathVariable("accountInfo") String accountInfo);
 }

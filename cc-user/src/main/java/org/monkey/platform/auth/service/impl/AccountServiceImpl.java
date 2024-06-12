@@ -2,6 +2,7 @@ package org.monkey.platform.auth.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.monkey.platform.auth.config.SysConfig;
 import org.monkey.platform.auth.mapper.AccountMapper;
@@ -25,6 +26,7 @@ import java.util.Date;
  * @since 2024/5/31 16:26
  */
 @Service
+@Slf4j
 public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> implements AccountService {
 
     @Autowired
@@ -63,21 +65,24 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> impl
         if (StringUtils.isEmpty(password)) {
             throw new CommException("密码不能为空");
         }
+        Account account = null;
         try {
+            String pwdCiphertxt = EnctyptUtil.hmacsha256(password, sysConfig.getHmacsha256key());
+            log.info("pwdCiphertxt={}", pwdCiphertxt);
             LambdaQueryWrapper<Account> queryWrapper = new LambdaQueryWrapper<>();
             queryWrapper.eq(Account::getAccount, username);
-            queryWrapper.eq(Account::getPassword, EnctyptUtil.hmacsha256(password, sysConfig.getHmacsha256key()));
-            Account account = accountMapper.selectOne(queryWrapper);
-            if (null == account) {
-                throw new CommException("账号或密码错误");
-            }
-            AccountDto accountDto = new AccountDto();
-            BeanUtils.copyProperties(account, accountDto);
-            return accountDto;
+            queryWrapper.eq(Account::getPassword, pwdCiphertxt);
+            account = accountMapper.selectOne(queryWrapper);
         } catch (Exception e) {
             log.error("数据库执行异常: ", e);
             throw new CommException("数据库执行异常");
         }
+        if (null == account) {
+            throw new CommException("账号或密码错误");
+        }
+        AccountDto accountDto = new AccountDto();
+        BeanUtils.copyProperties(account, accountDto);
+        return accountDto;
     }
 
     /**

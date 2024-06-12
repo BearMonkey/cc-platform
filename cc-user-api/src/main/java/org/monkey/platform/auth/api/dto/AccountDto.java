@@ -28,7 +28,7 @@ public class AccountDto extends BaseDto {
 
     /** 密码 */
     @ApiModelProperty("密码")
-    @JSONField(serialize = false)
+    //@JSONField(serialize = false)
     private String password;
 
     /** 名称 */
