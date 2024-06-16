@@ -1,22 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<class-room>
-    <id>101</id>
-    <teacher>
-        <name>111</name>
-        <type>数学</type>
-    </teacher>
-    <students>
-        <student>
-            <name>111</name>
-            <age>12</age>
-        </student>
-        <student>
-            <name>222</name>
-            <age>13</age>
-        </student>
-        <student>
-            <name>333</name>
-            <age>15</age>
-        </student>
-    </students>
-</class-room>
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+    <s:Body>
+        <RegisterParcelContainerResponse xmlns="http://Lapker.Pudo.PudoService.Interface.PartnerPudo">
+            <RegisterParcelContainerResult xmlns:a="http://Lapker.Pudo.PudoService.Interface.PartnerPudo.Messages" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+                <a:ErrorCode>PSR_FAILED</a:ErrorCode>
+                <a:ParcelResults xmlns:b="http://Lapker.Pudo.PudoService.Interface.PartnerPudo.Classes">
+                    <b:ParcelResult>
+                        <b:DirectionNumber i:nil="true"/>
+                        <b:DirectionNumberSender i:nil="true"/>
+                        <b:ErrorCode>PSR_PACKAGE_USED_BARCODE</b:ErrorCode>
+                        <b:ErrorMessageInternational i:nil="true"/>
+                        <b:IsDelayedDelivery>false</b:IsDelayedDelivery>
+                        <b:NewBarCode>TEST2024060300370</b:NewBarCode>
+                        <b:NewDirectPackageBarCode i:nil="true"/>
+                        <b:OriginalBarCode>TEST2024060300370</b:OriginalBarCode>
+                        <b:OriginalDirectPackageBarCode i:nil="true"/>
+                        <b:ShipmentID>SP202406150000001370</b:ShipmentID>
+                    </b:ParcelResult>
+                </a:ParcelResults>
+            </RegisterParcelContainerResult>
+        </RegisterParcelContainerResponse>
+    </s:Body>
+</s:Envelope>
