@@ -19,5 +19,7 @@ public class Test {
         // 设置header
         soapClient.setHeader(header);
     }*/
-    // wsdl2java.bat -p org.monkey.demo.wsdl -d F:\code\cc-platform\springboot-demo\src\main\java -client https://tsx.lapker.hu/PudoTest/PartnerPudoService?singleWsdl
+    // wsdl2java.bat -p org.monkey.demo.wsdl2 -d F:\code\cc-platform\springboot-demo\src\main\java -client https://tsx.lapker.hu/PudoTest/PartnerPudoService?singleWsdl
+
+    // wsimport -keep -encoding UTF-8 -d F:\code\cc-platform\springboot-demo\target\classes -s F:\code\cc-platform\springboot-demo\src\main\java -p org.monkey.demo.wsdl -verbose https://tsx.lapker.hu/PudoTest/PartnerPudoService?singleWsdl
 }
