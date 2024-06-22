@@ -1,0 +1,53 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <lap:RegisterParcelContainer xmlns:lap="http://Lapker.Pudo.PudoService.Interface.PartnerPudo">
+            <lap:request xmlns:lap1="http://Lapker.Pudo.PudoService.Interface.PartnerPudo.Messages">
+                <lap1:FinalizeLabelPrinting>false</lap1:FinalizeLabelPrinting>
+                <lap1:OnlyLabelPrinting>false</lap1:OnlyLabelPrinting>
+                <lap1:ParcelContainer xmlns:lap2="http://Lapker.Pudo.PudoService.Interface.PartnerPudo.Classes">
+                    <lap2:Parcel>
+                        <lap2:AccountingDeadlineDate>0001-01-01T00:00:00</lap2:AccountingDeadlineDate>
+                        <lap2:AutorizationCode>Groenk2401</lap2:AutorizationCode>
+                        <lap2:BarCode>202406172144308</lap2:BarCode>
+                        <lap2:CustomerAddress>Grimmenstein</lap2:CustomerAddress>
+                        <lap2:CustomerCity>Grimmenstein</lap2:CustomerCity>
+                        <lap2:CustomerCode>1104</lap2:CustomerCode>
+                        <lap2:CustomerCountryCode>AT</lap2:CustomerCountryCode>
+                        <lap2:CustomerEmail>elena @163.com</lap2:CustomerEmail>
+                        <lap2:CustomerName>ELENA</lap2:CustomerName>
+                        <lap2:CustomerPhone>+36701234567</lap2:CustomerPhone>
+                        <lap2:CustomerPostalCode>1104</lap2:CustomerPostalCode>
+                        <lap2:CustomerRegion>Rayleigh</lap2:CustomerRegion>
+                        <lap2:CustomerStreetNumber>10 ALLÉE MARYSE HILSZ</lap2:CustomerStreetNumber>
+                        <lap2:CustomerType>B2C</lap2:CustomerType>
+                        <lap2:DeliveryType>None</lap2:DeliveryType>
+                        <lap2:DestinationLocationId>false</lap2:DestinationLocationId>
+                        <lap2:IsPartnerInvoiced>false</lap2:IsPartnerInvoiced>
+                        <lap2:PackagePrice>15</lap2:PackagePrice>
+                        <lap2:PackagePriceCurrency>EUR</lap2:PackagePriceCurrency>
+                        <lap2:PackageSizeY>25</lap2:PackageSizeY>
+                        <lap2:PackageSizeY>10</lap2:PackageSizeY>
+                        <lap2:PackageSizeZ>5</lap2:PackageSizeZ>
+                        <lap2:PackageType>None</lap2:PackageType>
+                        <lap2:PackageVolume>1250</lap2:PackageVolume>
+                        <lap2:PackageWeight>0.5</lap2:PackageWeight>
+                        <lap2:ParcelCount>1</lap2:ParcelCount>
+                        <lap2:ParcelCreationStatus>Create</lap2:ParcelCreationStatus>
+                        <lap2:PriceAtDelivery>0.0</lap2:PriceAtDelivery>
+                        <lap2:PriceAtDeliveryCurrency>HUF</lap2:PriceAtDeliveryCurrency>
+                        <lap2:ReturnOfDocument>false</lap2:ReturnOfDocument>
+                        <lap2:ServiceType>HomeDeliver</lap2:ServiceType>
+                        <lap2:Tracking>false</lap2:Tracking>
+                        <lap2:TransitTime>2</lap2:TransitTime>
+                    </lap2:Parcel>
+                </lap1:ParcelContainer>
+                <lap1:PartnerAddress></lap1:PartnerAddress>
+                <lap1:PartnerCode>0000002000</lap1:PartnerCode>
+                <lap1:Supplier>Customer</lap1:Supplier>
+                <lap1:SupplimentJSONData></lap1:SupplimentJSONData>
+                <lap1:Token></lap1:Token>
+            </lap:request>
+        </lap:RegisterParcelContainer>
+    </soapenv:Body>
+</soapenv:Envelope>

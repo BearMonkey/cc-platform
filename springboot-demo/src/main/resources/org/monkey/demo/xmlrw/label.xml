@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns6="http://Lapker.Pudo.PudoService.Interface.PartnerPudo.Messages" xmlns:ns5="http://Lapker.Pudo.PudoService.Interface.Document" xmlns:ns8="http://Lapker.Pudo.PudoService.Interface.PartnerPudo" xmlns:ns7="http://Lapker.Pudo.PudoService.Interface.PartnerPudo.Classes" xmlns:ns2="http://Lapker.Pudo.InterfaceDTO.Report" xmlns:ns4="http://Lapker.Pudo.InterfaceDTO.Label" xmlns:ns3="http://Lapker.Pudo.PudoService.Interface.Document.Messages">
+    <Header/>
+    <Body>
+        <ns5:GetDocument>
+            <ns5:request>
+                <ns3:PartnerContext>
+                    <ns2:CultureInfo>hu-HU</ns2:CultureInfo>
+                    <ns2:LanguageName>HU</ns2:LanguageName>
+                </ns3:PartnerContext>
+                <ns3:Barcodes>
+                    <ns4:BarcodeData>
+                        <ns4:Barcode>GEB240620173538</ns4:Barcode>
+                        <ns4:Type>BT_PackageBarcode</ns4:Type>
+                        <ns3:SuplimentJSONData xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </ns4:BarcodeData>
+                </ns3:Barcodes>
+                <ns3:DocumentSettings>
+                    <ns4:DocumentSetting>
+                        <ns4:Format>DF_PDF</ns4:Format>
+                        <ns4:IsPositioned>false</ns4:IsPositioned>
+                        <ns4:Position>P_1</ns4:Position>
+                        <ns4:Size>DS_A6</ns4:Size>
+                        <ns3:SuplimentJSONData xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                        <ns4:Type>DT_PackageLabel</ns4:Type>
+                    </ns4:DocumentSetting>
+                </ns3:DocumentSettings>
+                <ns3:SuplimentJSONData xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+            </ns5:request>
+        </ns5:GetDocument>
+    </Body>
+</Envelope>
