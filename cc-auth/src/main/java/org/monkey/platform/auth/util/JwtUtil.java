@@ -89,8 +89,8 @@ public class JwtUtil {
         try {
             Jwts.parser().setSigningKey(sign).parseClaimsJws(token);
         } catch (Exception e) {
-            log.error("token校验服务异常, ", e);
-            return false;
+            //log.error("token校验服务异常, ", e);
+            throw e;
         }
         return true;
     }

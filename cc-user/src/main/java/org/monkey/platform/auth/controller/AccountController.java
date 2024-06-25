@@ -3,6 +3,7 @@ package org.monkey.platform.auth.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.mysql.cj.util.Base64Decoder;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.monkey.platform.api.exception.CommException;
 import org.monkey.platform.auth.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,15 +40,20 @@ public class AccountController {
         }
     }
 
-    @GetMapping("/user/{accountInfo}")
-    public Result<AccountDto> selectByAccountAndPwd(@PathVariable("accountInfo") String accountInfo) {
-        if (accountInfo == null || accountInfo.isEmpty()) {
+    @GetMapping("/user/{account}/{pwd}")
+    public Result<AccountDto> selectByAccountAndPwd(
+            @PathVariable("account") String account,
+            @PathVariable("pwd") String pwd) {
+        /*if (StringUtils.isEmpty(account)) {
             return Result.fail("账户信息不能为空");
         }
-        byte[] decode = Base64.getDecoder().decode(accountInfo);
-        String accountStr = new String(decode, StandardCharsets.UTF_8);
+        if (StringUtils.isEmpty(pwd)) {
+            return Result.fail("密码不能为空");
+        }*/
         try {
-            AccountDto accountDto = JSONObject.parseObject(accountStr, AccountDto.class);
+            AccountDto accountDto = new AccountDto();
+            accountDto.setAccount(account);
+            accountDto.setPassword(pwd);
             log.info("accountDto:{}", accountDto);
             AccountDto accountRst = accountService.selectAccount(accountDto.getAccount(), accountDto.getPassword());
             return Result.success(accountRst);

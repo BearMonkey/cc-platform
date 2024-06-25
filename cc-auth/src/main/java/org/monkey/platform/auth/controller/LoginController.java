@@ -3,6 +3,7 @@ package org.monkey.platform.auth.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.monkey.platform.auth.dto.LoginDto;
 import org.monkey.platform.auth.dto.LoginResp;
+import org.monkey.platform.auth.exception.LoginException;
 import org.monkey.platform.auth.pojo.Account;
 import org.monkey.platform.auth.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,9 @@ public class LoginController {
             LoginResp loginResp = loginService.login(loginDto);
             return Result.success(loginResp);
         } catch (Exception e) {
+            if (e instanceof LoginException) {
+                return Result.fail(e.getMessage());
+            }
             log.info(Constants.FAIL_UNKNOWN, e);
             return Result.fail(Constants.FAIL_UNKNOWN);
         }

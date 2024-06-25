@@ -15,7 +15,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: ${nacos.host:localhost}:${nacos.port:8849}
+        server-addr: ${nacos.host:localhost}:${nacos.port:8848}
         #namespace: 9c67e952-4ba6-4ba3-9ecb-5f3b568fa56b
         namespace: ${nacos.namespace:9c67e952-4ba6-4ba3-9ecb-5f3b568fa56b}
       config:

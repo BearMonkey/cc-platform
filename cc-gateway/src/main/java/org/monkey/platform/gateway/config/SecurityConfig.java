@@ -1,27 +1,45 @@
 package org.monkey.platform.gateway.config;
 
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.cloud.gateway.filter.GatewayFilter;
+import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
+import reactor.core.publisher.Mono;
+
+import java.util.function.Consumer;
 
 /**
  * SecurityConfig
  *
  * @author cc
- * @since 2024/6/11 19:59
+ * @since 2024/6/25 15:23
  */
-//@EnableWebSecurity
-@Configuration
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends AbstractGatewayFilterFactory{
     @Override
-    public void configure(WebSecurity web) throws Exception {
-        super.configure(web);
+    public GatewayFilter apply(String routeId, Consumer consumer) {
+        return super.apply(routeId, consumer);
     }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        super.configure(http);
+    public GatewayFilter apply(Consumer consumer) {
+        return super.apply(consumer);
+    }
+
+    @Override
+    public GatewayFilter apply(Object config) {
+        return (exchange, chain) -> {
+            // 自定义过滤逻辑
+            return chain.filter(exchange).then(Mono.fromRunnable(() -> {
+                // 请求结束后的逻辑
+            }));
+        };
+    }
+
+    @Override
+    public GatewayFilter apply(String routeId, Object config) {
+        return super.apply(routeId, config);
+    }
+
+    @Override
+    public String name() {
+        return super.name();
     }
 }

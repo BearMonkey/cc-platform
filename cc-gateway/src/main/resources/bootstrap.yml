@@ -9,7 +9,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: ${nacos.host:127.0.0.1}:${nacos.port:8849}
+        server-addr: ${nacos.host:127.0.0.1}:${nacos.port:8848}
         namespace: ${nacos.namespace:9c67e952-4ba6-4ba3-9ecb-5f3b568fa56b}
       config:
         server-addr: ${spring.cloud.nacos.discovery.server-addr}
@@ -24,15 +24,23 @@ spring:
       routes:
         - id: cc-demo
           uri: lb://cc-demo
-          #uri: http://localhost:8081
           predicates:
             - Path=/demo/**
 
         - id: cc-user
           uri: lb://cc-user
-          #uri: http://localhost:8081
           predicates:
-            - Path=/demo/**
+            - Path=/user/**
+
+        - id: cc-auth
+          uri: lb://cc-auth
+          predicates:
+            - Path=/auth/**
+  security:
+    user:
+      name: admin
+      password: 123456
+
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
