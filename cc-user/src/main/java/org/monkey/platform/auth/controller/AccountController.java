@@ -1,9 +1,6 @@
 package org.monkey.platform.auth.controller;
 
-import com.alibaba.fastjson.JSONObject;
-import com.mysql.cj.util.Base64Decoder;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.monkey.platform.api.exception.CommException;
 import org.monkey.platform.auth.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import org.monkey.platform.api.common.Constants;
 import org.monkey.platform.api.common.Result;
 import org.monkey.platform.auth.api.dto.AccountDto;
-
-import java.nio.charset.StandardCharsets;
-import java.util.Base64;
 
 /**
  * AccountController

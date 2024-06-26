@@ -1,6 +1,6 @@
 package org.monkey.platform.gateway.feign;
 
-import org.monkey.platform.api.common.Result;
+import org.monkey.platform.common.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

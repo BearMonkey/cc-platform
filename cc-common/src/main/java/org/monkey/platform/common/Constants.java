@@ -1,4 +1,4 @@
-package org.monkey.platform.api.common;
+package org.monkey.platform.common;
 
 /**
  * Constants 常量定义

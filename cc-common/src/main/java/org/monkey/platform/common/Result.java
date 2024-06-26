@@ -1,4 +1,4 @@
-package org.monkey.platform.api.common;
+package org.monkey.platform.common;
 
 import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.ApiModel;

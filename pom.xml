@@ -21,6 +21,8 @@
         <module>cc-auth</module>
         <module>springboot-demo</module>
         <module>mybatis-plus-demo</module>
+        <module>security-demo</module>
+        <module>cc-common</module>
     </modules>
 
     <properties>
