@@ -1,0 +1,9 @@
+server:
+  port: 20418
+
+spring:
+  application:
+    name: alipay-demo
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
