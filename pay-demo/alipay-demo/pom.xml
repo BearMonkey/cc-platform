@@ -14,6 +14,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <alipay.version>4.39.113.ALL</alipay.version>
     </properties>
 
     <dependencies>
@@ -25,6 +26,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alipay.sdk</groupId>
+            <artifactId>alipay-sdk-java</artifactId>
+            <version>${alipay.version}</version>
         </dependency>
     </dependencies>
 
