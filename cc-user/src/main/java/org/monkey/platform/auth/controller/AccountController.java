@@ -3,10 +3,10 @@ package org.monkey.platform.auth.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.monkey.platform.api.exception.CommException;
 import org.monkey.platform.auth.service.AccountService;
+import org.monkey.platform.common.Constants;
+import org.monkey.platform.common.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.monkey.platform.api.common.Constants;
-import org.monkey.platform.api.common.Result;
 import org.monkey.platform.auth.api.dto.AccountDto;
 
 /**

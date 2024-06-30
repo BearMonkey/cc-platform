@@ -14,7 +14,9 @@ public class AlipayConstants {
     public static final String CHARSET = "UTF-8";
     public static final String SIGN_TYPE = "RSA2";
     public static final String ALIPAY_PUBLIC_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA122EAScaIXLzfmPYQOFsMx7RKud7tY+OfEchx+2vPzWZMM1Dpw/N72x8CWtzFB6jdIlFAZRlWWRgvdixfxWl3AQ5c12F3uz1+5iZIfeVANEB/YHlu7E3lZQ3uneAsKCZbv4e/Bf828JpqAUQVZfaF24SLPIyhrrpV5BAm/r56tRPUf6IIG5+UrmtJLuGdvvp81pBr8OEPkj6VskQLc1xptRJFp+lmegMgOIZ8EWmLfY6Cauhdyy9OxwNwkj30T01EcsVgadVzic76+EAx3sNYm4C7fMGfN8vfXsJf9kPRSwK48polMVVA/2upgru/6ou83FqnZXB8WBOTnT1TlX3JQIDAQAB";
-    public static final String NOTIFY_URL = "https://856gf5005iu6.vicp.fun/test/test/123";
-    public static final String RETURN_URL = "https://856gf5005iu6.vicp.fun/test/test/456";
+    public static final String NOTIFY_URL = "http://856gf5005iu6.vicp.fun/alipay/test/test/123";
+    public static final String RETURN_URL = "http://856gf5005iu6.vicp.fun/alipay/test/test/456";
+
+    public static final String PRODUCT_CODE = "FAST_INSTANT_TRADE_PAY";
 
 }
