@@ -45,17 +45,7 @@ public class CcGlobalFilter implements GlobalFilter, Ordered {
         if (matcher.match("/login/**", path)) {
             return chain.filter(exchange);
         } else {
-            HttpHeaders headers = request.getHeaders();
-            Result<Object> authResult = authService.checkAuth(headers.get(HttpHeaders.AUTHORIZATION));
-            if (null == authResult || StringUtils.isEmpty(authResult.getCode())) {
-                response.setStatusCode(HttpStatus.UNAUTHORIZED);
-                return response.setComplete();
-            }
-
-            if (!"1".equals(authResult.getCode())) {
-                response.setStatusCode(HttpStatus.UNAUTHORIZED);
-                return response.setComplete();
-            }
+            //
             return chain.filter(exchange);
         }
     }

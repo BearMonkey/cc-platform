@@ -24,8 +24,6 @@
         <module>security-demo</module>
         <module>cc-common</module>
         <module>pay-demo</module>
-        <module>pay-demo/alipay-demo</module>
-        <module>pay-demo/wxpay-demo</module>
     </modules>
 
     <properties>
